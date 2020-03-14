@@ -25,14 +25,19 @@ func main() {
 	// can.Line(10, 10, 15, 7)
 	// can.Line(15, 7, 20, 10)
 
-	// can.Point(30, 10)
-	// can.Circle(10, 10, 5)
-	// can.Circle(30, 10, 10)
+	can.Point(30, 10)
+	can.Circle(10, 10, 5)
+	can.Circle(30, 10, 10)
 	can.SetColor(canvas.RED)
 	can.Line(20, 10, 50, 10)
 	can.SetColor(canvas.GREEN)
 	can.Line(20, 10, 50, 17)
+	can.SetColor(canvas.CYAN)
+	can.Triangle(55, 7, 60, 3, 68, 7)
+	can.SetColor(canvas.PURPLE)
+	can.Text(30, 7, "omg it's so cool")
 	can.SetColor(canvas.CLEAR)
+
 	can.Draw()
 
 	fmt.Println(canvas.RED)

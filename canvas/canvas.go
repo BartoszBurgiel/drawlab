@@ -49,6 +49,9 @@ func (c Canvas) Draw() {
 	// clear the screen
 	//fmt.Println("\033[H\033[2J")
 
+	// set color to clear
+	c.SetColor(CLEAR)
+
 	// Print the title above the canvas
 	fmt.Print(c.printHeader())
 
