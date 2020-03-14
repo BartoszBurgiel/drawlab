@@ -12,9 +12,16 @@ func main() {
 	can := canvas.New(70, 20, "test")
 
 	fmt.Println("Drawing...")
-	can.Line(5, 15, 60, 5)
-	can.Line(5, 10, 60, 5)
-	can.Line(5, 20, 60, 5)
+	// can.Line(5, 15, 60, 5)
+	// can.Line(5, 10, 60, 5)
+	// can.Line(5, 20, 60, 5)
 
+	// can.Rect(10, 10, 20, 5)
+	// can.Rect(5, 5, 40, 10)
+	// can.Rect(40, 2, 15, 15)
+
+	can.Rect(10, 10, 10, 5)
+	can.Line(10, 10, 15, 7)
+	can.Line(15, 7, 20, 10)
 	can.Draw()
 }

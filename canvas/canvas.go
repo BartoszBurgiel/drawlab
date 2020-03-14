@@ -43,7 +43,7 @@ func New(width, height int, header string) Canvas {
 // Draw the canvas with the border
 func (c Canvas) Draw() {
 	// clear the screen
-	fmt.Println("\033[H\033[2J")
+	//fmt.Println("\033[H\033[2J")
 
 	// Print the title above the canvas
 	fmt.Print(c.printHeader())
