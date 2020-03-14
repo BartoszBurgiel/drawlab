@@ -29,3 +29,9 @@ func (c Canvas) printHeader() string {
 	out += "\n"
 	return out
 }
+
+// SetColor of the printed text
+func (c *Canvas) SetColor(color string) {
+	c.color = color
+
+}

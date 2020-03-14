@@ -11,30 +11,34 @@ type Canvas struct {
 	title string
 
 	// Fields on which the characters will append
-	Fields [][]byte
+	Fields [][]string
 
 	// the character that is places currently
-	Char byte
+	// as well as the color
+	Char string
 
 	// Dimentions of the canvas
 	Height int
 	Width  int
+
+	// Current color the shape will be printed
+	color string
 }
 
 // New returns a new canvas with
 // the given size (console window)
 func New(width, height int, header string) Canvas {
-	c := Canvas{Char: '-', title: header, Height: height, Width: width}
+	c := Canvas{Char: "-", title: header, Height: height, Width: width}
 
 	// construct the two dimensional slice
 	for i := 0; i < height; i++ {
 
 		// append new row
-		c.Fields = append(c.Fields, []byte{})
+		c.Fields = append(c.Fields, []string{})
 		for j := 0; j < width; j++ {
 
 			// append new field
-			c.Fields[i] = append(c.Fields[i], ' ')
+			c.Fields[i] = append(c.Fields[i], " ")
 		}
 	}
 	return c
@@ -52,12 +56,12 @@ func (c Canvas) Draw() {
 
 	// Iterate over the canvas' fields and print
 	for _, x := range c.Fields {
-		fmt.Print("|")
+		fmt.Print(c.color + "|")
 		for _, y := range x {
-			fmt.Print(string(y))
+			fmt.Print(y)
 		}
 		// after each row add a line break
-		fmt.Println("|")
+		fmt.Println(c.color + "|")
 	}
 
 	fmt.Print(c.printVerticalBorder())
@@ -75,10 +79,13 @@ func (c Canvas) ToString() string {
 	for _, x := range c.Fields {
 		out += "|"
 		for _, y := range x {
-			out += string(y)
+
+			// add only the valid character -> the others
+			// are color specs
+			out += string(y[len(y)-1])
 		}
 		// after each row add a line break
-		out += "|"
+		out += "|\n"
 	}
 	out += c.printVerticalBorder()
 	return out
