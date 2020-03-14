@@ -12,5 +12,6 @@ func (c *Canvas) Line(x1, y1, x2, y2 int) {
 	for i := x1; i <= x2; i++ {
 
 		c.Point(i, f(i))
+
 	}
 }
