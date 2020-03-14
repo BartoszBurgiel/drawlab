@@ -56,8 +56,7 @@ func lineToFunction(line string) Function {
 			// check if it's text for the text function
 			if tempParam[0] == '"' {
 				// remove quotes
-				param = strings.ReplaceAll(tempParam, "\"", "")
-				parameter = append(parameter, tempParam)
+				parameter = append(parameter, tempParam[1:len(tempParam)-1])
 			}
 		} else {
 			parameter = append(parameter, n)

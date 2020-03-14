@@ -53,13 +53,13 @@ Here you can see how drawn triangle, some text, lines and circles look like
 
 And here's it's code (golang)
 <pre><code>
-can := canvas.New(70, 20, "test")
-can.Point(30, 10)
-can.Circle(10, 10, 5)
-can.Circle(30, 10, 10)
-can.Line(20, 10, 50, 10)
-can.Line(20, 10, 50, 17)
-can.Triangle(55, 7, 60, 3, 68, 7)
-can.Text(30, 7, "omg it's so cool")
-can.Draw()
+init(70, 20, "hello")
+
+point(30, 10)
+circle(10, 10, 5)
+circle(30, 10, 10)
+line(20, 10, 50, 10)
+line(20, 10, 50, 17)
+triangle(55, 7, 60, 3, 68, 7)
+text(30, 7, "omg it's so cool")
 </code></pre>
