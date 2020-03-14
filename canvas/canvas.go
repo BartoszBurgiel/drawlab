@@ -47,7 +47,7 @@ func New(width, height int, header string) Canvas {
 // Draw the canvas with the border
 func (c Canvas) Draw() {
 	// clear the screen
-	//fmt.Println("\033[H\033[2J")
+	fmt.Println("\033[H\033[2J")
 
 	// set color to clear
 	c.SetColor(CLEAR)

@@ -2,7 +2,9 @@ package main
 
 import (
 	"drawlab/canvas"
+	"drawlab/interpreter"
 	"fmt"
+	"io/ioutil"
 	"os"
 )
 
@@ -10,7 +12,7 @@ func main() {
 	fmt.Println("Welcome to drawlab")
 
 	fmt.Println("Initializing the canvas...")
-	can := canvas.New(70, 20, "test")
+	can := canvas.New(120, 40, "test")
 
 	fmt.Println("Drawing...")
 	// can.Line(5, 15, 60, 5)
@@ -40,17 +42,16 @@ func main() {
 
 	can.Draw()
 
-	fmt.Println(canvas.RED)
-	fmt.Println("hey")
-	fmt.Println(canvas.CLEAR)
-	fmt.Println("hey")
-
-	fmt.Println(canvas.YELLOW + "heey")
-	fmt.Println(canvas.CLEAR + "heey")
-
 	file, _ := os.Create("nyy.txt")
 	defer file.Close()
 
 	file.WriteString(can.ToString())
 	file.Sync()
+
+	// read the code
+	code, _ := ioutil.ReadFile("code.dl")
+	f := interpreter.Tokenize(string(code))
+
+	c := canvas.RunFunctions(f)
+	c.Draw()
 }
