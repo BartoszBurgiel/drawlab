@@ -12,6 +12,7 @@ func RunFunctions(funcs []interpreter.Function) Canvas {
 	// check if init function is declared
 	if funcs[0].Name != "init" {
 		fmt.Println("drawlab: init function missing")
+		os.Exit(0)
 	}
 
 	// first function must be the init function

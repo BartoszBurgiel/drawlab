@@ -1,17 +1,28 @@
+init(70, 20, "hello")
 
+#moin = 30
 
-#moin = 31
 point(#moin, 2)
-#hey = "no co tam"
-point(#moin, 10)
-circle(10, 10, 5)
-circle(#moin, 10, 10)
-line(20, 10, 50, 10)
-line(20, 10, 50, 17)
-triangle(55, 7, 60, 3, 68, 7)
-text(#moin, 7, #hey)
-line(#moin, 10, 2, 4)
-#hello = #moin
-#wasGeht = "yoo"
 
+#moin+2
+point(#moin, 2)
 
+#moin+2
+point(#moin, 2)
+
+#moin+2
+point(#moin, 2)
+
+#moin+2
+point(#moin, 2)
+
+#moin=10
+point(#moin, 5)
+
+#moin*3
+point(#moin, 5)
+
+#moin+2
+
+#moin/2
+point(#moin, 5)

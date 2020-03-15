@@ -26,7 +26,7 @@ func Prepare(code string) []Function {
 				prog.Funcs = append(prog.Funcs, prog.lineToFunction(line))
 				break
 			case "var":
-				prog.Vars = append(prog.Vars, prog.lineToVariable(line))
+				prog.lineToVariable(line)
 			}
 		}
 
