@@ -12,8 +12,9 @@ func main() {
 
 	// read the code
 	code, _ := ioutil.ReadFile("code.dl")
-	f := interpreter.Tokenize(string(code))
+	f := interpreter.Prepare(string(code))
 
 	c := canvas.RunFunctions(f)
 	c.Draw()
+
 }

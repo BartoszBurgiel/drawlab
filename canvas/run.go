@@ -9,6 +9,11 @@ import (
 // RunFunctions provided by drawlab's compiler
 func RunFunctions(funcs []interpreter.Function) Canvas {
 
+	// check if init function is declared
+	if funcs[0].Name != "init" {
+		fmt.Println("drawlab: init function missing")
+	}
+
 	// first function must be the init function
 	can := New(funcs[0].Parameters[0].(int), funcs[0].Parameters[1].(int), funcs[0].Parameters[2].(string))
 

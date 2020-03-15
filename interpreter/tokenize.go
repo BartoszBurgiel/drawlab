@@ -1,70 +1,44 @@
 package interpreter
 
 import (
-	"strconv"
+	"fmt"
 	"strings"
 )
 
-// Tokenize divides the code into tokens
-func Tokenize(code string) []Function {
-	functions := []Function{}
+// Prepare divides the code into functions
+// with precalculated parameters
+func Prepare(code string) []Function {
+
+	// Define program
+	prog := Program{}
 
 	// split code into lines
 	splittedCode := strings.SplitAfter(code, "\n")
 
 	for _, line := range splittedCode {
-		functions = append(functions, lineToFunction(line))
-	}
 
-	return functions
+		// only if valid length
+		if len(line) > 2 {
+
+			// examine line
+			switch determineType(line) {
+			case "func":
+				prog.Funcs = append(prog.Funcs, prog.lineToFunction(line))
+				break
+			case "var":
+				prog.Vars = append(prog.Vars, prog.lineToVariable(line))
+			}
+		}
+
+	}
+	fmt.Println(prog)
+	return prog.Funcs
 }
 
-// pull all relevant information from a line of code
-// and convert it to the function struct
-func lineToFunction(line string) Function {
-	if len(line) < 3 {
-		return Function{}
+// determine which type a line belongs to
+func determineType(line string) string {
+	if line[0] == '#' {
+		return "var"
 	}
-
-	// divide the function and the parameter
-	divided := strings.Split(line, "(")
-
-	// name of the function at the position 0
-	functionName := divided[0]
-
-	// handle and split parameter
-	params := strings.Split(divided[1], ",")
-
-	parameter := []interface{}{}
-	for _, param := range params {
-
-		// remove all whitespace and closed bracket
-
-		param = strings.ReplaceAll(param, ")", "")
-		param = strings.ReplaceAll(param, "\n", "")
-
-		// check if first byte is a space
-		tempParam := param
-		if param[0] == ' ' {
-			tempParam = param[1:]
-		}
-
-		// check if number
-		n, err := strconv.Atoi(tempParam)
-		if err != nil {
-
-			// check if it's text for the text function
-			if tempParam[0] == '"' {
-				// remove quotes
-				parameter = append(parameter, tempParam[1:len(tempParam)-1])
-			}
-		} else {
-			parameter = append(parameter, n)
-		}
-	}
-
-	return Function{
-		Name:       functionName,
-		Parameters: parameter,
-	}
+	return "func"
 }
