@@ -1,5 +1,11 @@
 init(70, 20, "hello")
 
+
+#i = 0 
+loop(#i,10,1) {
+    point(#i, 10)
+}
+
 #moin = 30
 
 point(#moin, 2)
@@ -26,3 +32,4 @@ point(#moin, 5)
 
  #moin/2
    point(#moin, 5)
+

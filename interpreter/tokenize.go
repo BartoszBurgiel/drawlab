@@ -13,28 +13,30 @@ func Prepare(code string) []Function {
 	prog := Program{}
 
 	// split code into lines
-	splittedCode := strings.SplitAfter(code, "\n")
+	lines := strings.SplitAfter(code, "\n")
 
-	for _, line := range splittedCode {
+	for i := 0; i < len(lines); i++ {
 
 		// only if valid length
-		if len(line) > 2 {
+		if len(lines[i]) > 2 {
 
 			// remove whitespace before the line
-			for line[0] == ' ' {
-				line = line[1:]
+			for lines[i][0] == ' ' {
+				lines[i] = lines[i][1:]
 			}
 
 			// examine line
-			switch determineType(line) {
+			switch determineType(lines[i]) {
 			case "func":
-				prog.Funcs = append(prog.Funcs, prog.lineToFunction(line))
+				prog.Funcs = append(prog.Funcs, prog.lineToFunction(lines[i]))
 				break
 			case "var":
-				prog.lineToVariable(line)
+				prog.lineToVariable(lines[i])
+				break
+			case "loop":
+				i += prog.lineToLoop(lines[i:])
 			}
 		}
-
 	}
 	fmt.Println(prog)
 	return prog.Funcs
@@ -44,6 +46,8 @@ func Prepare(code string) []Function {
 func determineType(line string) string {
 	if line[0] == '#' {
 		return "var"
+	} else if line[:4] == "loop" {
+		return "loop"
 	}
 	return "func"
 }
