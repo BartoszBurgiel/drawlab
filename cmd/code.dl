@@ -19,10 +19,10 @@ point(#moin, 2)
 #moin=10
 point(#moin, 5)
 
-#moin*3
-point(#moin, 5)
+    #moin*3
+        point(#moin, 5)
 
-#moin+2
+               #moin+2
 
-#moin/2
-point(#moin, 5)
+ #moin/2
+   point(#moin, 5)

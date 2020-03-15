@@ -20,6 +20,11 @@ func Prepare(code string) []Function {
 		// only if valid length
 		if len(line) > 2 {
 
+			// remove whitespace before the line
+			for line[0] == ' ' {
+				line = line[1:]
+			}
+
 			// examine line
 			switch determineType(line) {
 			case "func":
