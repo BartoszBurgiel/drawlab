@@ -1,6 +1,8 @@
 package interpreter
 
 import (
+	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -30,6 +32,12 @@ func (p Program) lineToFunction(line string) Function {
 
 	parameter := []interface{}{}
 	for _, param := range params {
+
+		// check length of the parameter
+		if len(param) < 1 {
+			fmt.Println("drawlab: null parameter found at the function", functionName)
+			os.Exit(0)
+		}
 
 		// remove all whitespace and closed bracket
 

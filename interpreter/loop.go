@@ -102,8 +102,8 @@ func (p *Program) lineToLoop(code []string) int {
 	// execute code after the loop
 	// get starting value
 	start := p.getVariable(loop.Variable)
-	fmt.Println(loop)
-	for i := start.(int); i < loop.End; i += loop.Incr {
+
+	for i := start.(int); i <= loop.End+1; i += loop.Incr {
 
 		// iterate over loopCode
 		for j := 0; j < len(loopCode); j++ {

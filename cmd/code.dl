@@ -1,35 +1,9 @@
 init(70, 20, "hello")
 
 
-#i = 0 
-loop(#i,10,1) {
-    point(#i, 10)
+#i = 5
+loop(#i, 50, 1) {
+    line(6, 0, #i, 20)
 }
 
-#moin = 30
-
-point(#moin, 2)
-
-#moin+2
-point(#moin, 2)
-
-#moin+2
-point(#moin, 2)
-
-#moin+2
-point(#moin, 2)
-
-#moin+2
-point(#moin, 2)
-
-#moin=10
-point(#moin, 5)
-
-    #moin*3
-        point(#moin, 5)
-
-               #moin+2
-
- #moin/2
-   point(#moin, 5)
-
+line(, , , 0)
