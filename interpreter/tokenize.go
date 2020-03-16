@@ -2,6 +2,7 @@ package interpreter
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -35,6 +36,16 @@ func Prepare(code string) []Function {
 				break
 			case "loop":
 				i += prog.lineToLoop(lines[i:])
+				break
+			case "color":
+				prog.lineToColor(lines[i])
+				break
+			case "char":
+				prog.lineToChar(lines[i])
+				break
+			default:
+				fmt.Println("drawlab: unknow token found at line:", i+1)
+				os.Exit(0)
 			}
 		}
 	}
@@ -48,6 +59,10 @@ func determineType(line string) string {
 		return "var"
 	} else if line[:4] == "loop" {
 		return "loop"
+	} else if line[:5] == "color" {
+		return "color"
+	} else if line[:4] == "char" {
+		return "char"
 	}
 	return "func"
 }

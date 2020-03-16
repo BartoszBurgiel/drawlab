@@ -1,9 +1,8 @@
 init(70, 20, "hello")
 
+color(red)
 
 #i = 5
 loop(#i, 50, 1) {
     line(6, 0, #i, 20)
 }
-
-line(, , , 0)

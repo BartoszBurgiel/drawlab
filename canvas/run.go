@@ -60,6 +60,41 @@ func RunFunctions(funcs []interpreter.Function) Canvas {
 			checkArguments(fun, 6, i+1)
 			can.Triangle(fun.Parameters[0].(int), fun.Parameters[1].(int), fun.Parameters[2].(int), fun.Parameters[3].(int), fun.Parameters[4].(int), fun.Parameters[5].(int))
 			break
+		case "color":
+
+			// check for legal number of parameters
+			checkArguments(fun, 1, i+1)
+
+			// determine which color to set
+			switch fun.Parameters[0].(string) {
+			case "red":
+				can.SetColor(RED)
+				break
+			case "green":
+				can.SetColor(GREEN)
+				break
+			case "blue":
+				can.SetColor(BLUE)
+				break
+			case "purple":
+				can.SetColor(PURPLE)
+				break
+			case "cyan":
+				can.SetColor(CYAN)
+				break
+			case "reset":
+				can.SetColor(CLEAR)
+				break
+			case "yellow":
+				can.SetColor(YELLOW)
+				break
+			case "white":
+				can.SetColor(WHITE)
+				break
+			default:
+				fmt.Println("drawlab: color named", fun.Parameters[0].(string), "is not supported")
+				os.Exit(0)
+			}
 		default:
 			if fun.Name != "" {
 				panic("drawlab: unsupported function: " + fun.Name)

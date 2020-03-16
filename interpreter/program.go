@@ -10,6 +10,8 @@ import (
 type Program struct {
 	Funcs []Function
 	Vars  []Variable
+	Color string
+	Char  string
 }
 
 // Find a variable with the given name and return it's
