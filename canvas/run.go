@@ -95,6 +95,13 @@ func RunFunctions(funcs []interpreter.Function) Canvas {
 				fmt.Println("drawlab: color named", fun.Parameters[0].(string), "is not supported")
 				os.Exit(0)
 			}
+			break
+		case "char":
+
+			// check the number of provided parameters
+			checkArguments(fun, 1, i+1)
+
+			can.SetChar(fun.Parameters[0].(string))
 		default:
 			if fun.Name != "" {
 				panic("drawlab: unsupported function: " + fun.Name)

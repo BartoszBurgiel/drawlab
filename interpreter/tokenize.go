@@ -49,7 +49,6 @@ func Prepare(code string) []Function {
 			}
 		}
 	}
-	fmt.Println(prog)
 	return prog.Funcs
 }
 

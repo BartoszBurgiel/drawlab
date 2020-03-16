@@ -1,8 +1,21 @@
-init(70, 20, "hello")
+init(70, 20, "moin Louis")
 
 color(red)
+char(x)
 
 #i = 5
 loop(#i, 50, 1) {
     line(6, 0, #i, 20)
 }
+
+color(yellow)
+char(o)
+
+#i=10
+loop(#i, 60, 1) {
+    line(#i, 0, 60, 20)
+}
+
+color(green)
+char(@)
+circle(35, 10, 5)
