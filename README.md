@@ -23,6 +23,23 @@ draw pictures via functions (similar to processing or p5.js) in the console
         * white 
         * purple
 
+## declare variables 
+* #var = 0 
+* #str = "hello"
+
+## variable operations 
+* #var+1 -> increase value of #var by one 
+* #var-1 -> decrease value of #var by one 
+* #var*2 -> multiply value of #var by two 
+* #var/2 -> divide value of #var by two 
+
+## write a loop 
+<pre><code>
+loop(#startingVariable, limit, incr) {
+    // some code
+}
+</code></pre>
+
 ## preview
 Here you can see how drawn triangle, some text, lines and circles look like 
 <pre><code>
@@ -51,7 +68,7 @@ Here you can see how drawn triangle, some text, lines and circles look like
 ========================================================================
 </code></pre>
 
-And here's it's code (golang)
+And here's it's code
 <pre><code>
 init(70, 20, "hello")
 
