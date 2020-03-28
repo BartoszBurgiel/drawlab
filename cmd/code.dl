@@ -1,21 +1,19 @@
-init(70, 20, "moin Louis")
+init(70, 20, "hello r/processing")
 
 color(red)
 char(x)
 
-#i = 5
-loop(#i, 50, 1) {
-    line(6, 0, #i, 20)
-}
-
-color(yellow)
-char(o)
-
-#i=10
-loop(#i, 60, 1) {
-    line(#i, 0, 60, 20)
-}
+circle(10, 10, 5)
 
 color(green)
-char(@)
-circle(35, 10, 5)
+circle(30, 10, 10)
+
+char(-)
+line(20, 10, 50, 10)
+line(20, 10, 50, 17)
+
+color(blue)
+triangle(55, 7, 60, 3, 68, 7)
+
+color(white)
+text(30, 7, "omg it's so cool")

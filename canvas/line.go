@@ -12,7 +12,16 @@ func (c *Canvas) Line(x1, y1, x2, y2 int) {
 
 		}
 	} else {
-		for i := 0; i < abs(y1-y2); i++ {
+
+		// determine start and end
+		start := y1
+		end := y2
+		if start > end {
+			end = y1
+			start = y2
+		}
+
+		for i := start; i < end; i++ {
 			c.Point(x1, i)
 		}
 	}
