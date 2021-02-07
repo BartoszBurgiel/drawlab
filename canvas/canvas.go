@@ -28,20 +28,18 @@ type Canvas struct {
 // New returns a new canvas with
 // the given size (console window)
 func New(width, height int, header string) Canvas {
-	c := Canvas{Char: "-", title: header, Height: height, Width: width}
-
-	// construct the two dimensional slice
+	field := make([][]string, height)
 	for i := 0; i < height; i++ {
-
-		// append new row
-		c.Fields = append(c.Fields, []string{})
-		for j := 0; j < width; j++ {
-
-			// append new field
-			c.Fields[i] = append(c.Fields[i], " ")
-		}
+		field[i] = make([]string, width)
 	}
-	return c
+	return Canvas{
+		Fields: field,
+		Char:   "-",
+		title:  header,
+		Height: height,
+		Width:  width,
+	}
+
 }
 
 // Draw the canvas with the border
@@ -57,15 +55,29 @@ func (c Canvas) Draw() {
 
 	fmt.Print(c.printVerticalBorder())
 
+	// string that holds the entire canvas
+	// so that it can be printed at once
+	canvString := ""
 	// Iterate over the canvas' fields and print
 	for _, x := range c.Fields {
-		fmt.Print(c.color + "|")
+		canvString += c.color + "|"
+
+		// temporary string to combine the
+		// rows
+		str := ""
 		for _, y := range x {
-			fmt.Print(y)
+			if y == "" {
+				str += " "
+			} else {
+
+				str += y
+			}
 		}
+		canvString += str
 		// after each row add a line break
-		fmt.Println(c.color + "|")
+		canvString += c.color + "|\n"
 	}
+	fmt.Print(canvString)
 
 	fmt.Print(c.printVerticalBorder())
 }

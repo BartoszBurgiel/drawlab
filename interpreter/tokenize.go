@@ -11,7 +11,7 @@ import (
 func Prepare(code string) []Function {
 
 	// Define program
-	prog := Program{}
+	prog := newProgram()
 
 	// split code into lines
 	lines := strings.SplitAfter(code, "\n")
@@ -49,6 +49,7 @@ func Prepare(code string) []Function {
 			}
 		}
 	}
+	// prog.printProgram()
 	return prog.Funcs
 }
 

@@ -8,7 +8,7 @@ func (c *Canvas) Rect(x1, y1, width, height int) {
 	currChar := c.GetChar()
 
 	// set char to line char
-	c.SetChar("|")
+	c.SetChar('|')
 
 	// Lines cannot be drawn since the m = +Inf
 	// The points are drawn manually
@@ -22,7 +22,7 @@ func (c *Canvas) Rect(x1, y1, width, height int) {
 	}
 
 	// set char to line char
-	c.SetChar("-")
+	c.SetChar('-')
 
 	// top line
 	c.Line(x1, y1, x1+width, y1)

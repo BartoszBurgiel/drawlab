@@ -1,12 +1,23 @@
 init(70, 20, "hello r/processing")
 
+#haha = 30
+#haha1 = 301
+#haha2 = 302
+#haha3 = 303
+#haha4 = 304
+#haha5 = 305
+#haha6 = 306
+#haha7 = 307
+#haha8 = 308
+#haha9 = 309
+#haha0 = 300
 color(red)
 char(x)
 
 circle(10, 10, 5)
 
 color(green)
-circle(30, 10, 10)
+circle(#haha, 10, 10)
 
 char(-)
 line(20, 10, 50, 10)

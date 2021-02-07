@@ -101,7 +101,7 @@ func RunFunctions(funcs []interpreter.Function) Canvas {
 			// check the number of provided parameters
 			checkArguments(fun, 1, i+1)
 
-			can.SetChar(fun.Parameters[0].(string))
+			can.SetChar([]byte(fun.Parameters[0].(string))[0])
 		default:
 			if fun.Name != "" {
 				panic("drawlab: unsupported function: " + fun.Name)

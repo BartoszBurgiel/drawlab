@@ -29,21 +29,21 @@ type DataPoints interface {
 //
 // the width of the canvas is dependent
 // of the size of the data points
-func (c *Canvas) Graph(x, y, height int, data DataPoints, label string, pointString string) {
+func (c *Canvas) Graph(x, y, height int, data DataPoints, label string, point byte) {
 
 	// print the label
 	c.Text(x+(data.Size()/2), y-1, label)
 
 	// print the y-axis
 	// change character to the actual line
-	c.SetChar("|")
+	c.SetChar('|')
 	c.Line(x, y, x, y+height)
-	c.SetChar("-")
+	c.SetChar('-')
 
 	// print the x-axis
 	c.Line(x, y+height, x+data.Size(), y+height)
 
-	c.SetChar(pointString)
+	c.SetChar(point)
 	// iterate over data
 	for i := 0; i < data.Size(); i++ {
 
@@ -57,6 +57,6 @@ func (c *Canvas) Graph(x, y, height int, data DataPoints, label string, pointStr
 		yCoord := int(float64(data.GetElement(i))/float64(data.GetMax())*float64(height)) + height
 		c.Point(xCoord, yCoord)
 	}
-	c.SetChar("-")
+	c.SetChar('-')
 
 }

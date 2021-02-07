@@ -65,7 +65,7 @@ func (p *Program) declareVariable(line string) {
 		return
 	}
 
-	p.Vars = append(p.Vars, Variable{Name: name, Value: val})
+	p.Vars[name] = Variable{Name: name, Value: val}
 
 }
 
